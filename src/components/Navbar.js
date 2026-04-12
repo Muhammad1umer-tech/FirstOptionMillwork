@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { HoverButton } from "@/components/ui/hover-glow-button";
 
 export default function Navbar() {
@@ -65,22 +66,22 @@ export default function Navbar() {
 
           <nav className="flex items-center gap-8 text-sm text-[#222]">
 
-            <a className="relative hover:text-black transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-black after:transition-all">
+            <Link href="/" className="relative hover:text-black transition after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-black after:transition-all">
               Home
-            </a>
+            </Link>
 
             <div
               className="relative"
               onMouseEnter={() => setOpen("services")}
               onMouseLeave={() => setOpen(null)}
             >
-              <span className="cursor-pointer">Services ▾</span>
+              <Link href="/services" className="cursor-pointer">Services ▾</Link>
               {open === "services" && (
                 <div className="absolute top-8 left-0 bg-white border border-gray-200 w-48 shadow-lg py-2">
-                  <a className="block px-4 py-2 text-sm hover:bg-gray-100">Custom Cabinets</a>
-                  <a className="block px-4 py-2 text-sm hover:bg-gray-100">Kitchen Cabinets</a>
-                  <a className="block px-4 py-2 text-sm hover:bg-gray-100">Closets</a>
-                  <a className="block px-4 py-2 text-sm hover:bg-gray-100">Millwork</a>
+                  <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">Custom Cabinets</Link>
+                  <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">Kitchen Cabinets</Link>
+                  <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">Closets</Link>
+                  <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">Millwork</Link>
                 </div>
               )}
             </div>
@@ -106,20 +107,22 @@ export default function Navbar() {
             <a className="hover:text-black transition">Gallery</a>
             <a className="hover:text-black transition">Our Process</a>
             <a className="hover:text-black transition">Blog</a>
-            <a className="hover:text-black transition">Contact</a>
+            <Link href="/contact" className="hover:text-black transition">Contact</Link>
 
           </nav>
 
           <div>
-            <HoverButton
-              glowColor="#ff8c00"
-              backgroundColor="#3e2723"
-              textColor="#f8f4f0"
-              hoverTextColor="#ceb79f"
-              className="shadow-lg"
-            >
-              Contact Us
-            </HoverButton>
+            <Link href="/contact">
+              <HoverButton
+                glowColor="#ff8c00"
+                backgroundColor="#3e2723"
+                textColor="#f8f4f0"
+                hoverTextColor="#ceb79f"
+                className="shadow-lg"
+              >
+                Contact Us
+              </HoverButton>
+            </Link>
           </div>
 
         </div>

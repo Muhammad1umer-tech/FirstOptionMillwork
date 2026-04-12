@@ -77,12 +77,12 @@ const Testimonials = () => {
         >
           <div className="mt-6">
             <SectionHeader
-            eyebrow="Testimonials"
-            titleBefore="What Our"
-            titleHighlight="Clients"
-            titleAfter="Say"
-            subtitle="See what our customers have to say about us"
-          />
+              eyebrow="Testimonials"
+              titleBefore="What Our"
+              titleHighlight="Clients"
+              titleAfter="Say"
+              subtitle="See what our customers have to say about us"
+            />
           </div>
         </motion.div>
 

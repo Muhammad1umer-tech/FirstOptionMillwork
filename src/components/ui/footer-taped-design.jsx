@@ -171,7 +171,7 @@ export const Component = () => {
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition">
               <lord-icon
                 src="https://cdn.lordicon.com/qgebwute.json"
-                trigger="hover"
+                trigger="loop"
                 stroke="bold"
                 colors="primary:#ffffff,secondary:#08a88a"
                 style={{ width: 20, height: 20 }}
@@ -181,7 +181,7 @@ export const Component = () => {
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition">
               <lord-icon
                 src="https://cdn.lordicon.com/bfoumeno.json"
-                trigger="hover"
+                trigger="loop"
                 stroke="bold"
                 colors="primary:#ffffff,secondary:#08a88a"
                 style={{ width: 20, height: 20 }}
@@ -191,7 +191,7 @@ export const Component = () => {
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition">
               <lord-icon
                 src="https://cdn.lordicon.com/zmvgugmh.json"
-                trigger="hover"
+                trigger="loop"
                 state="hover-dots"
                 stroke="bold"
                 colors="primary:#ffffff,secondary:#08a88a"

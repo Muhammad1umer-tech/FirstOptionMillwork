@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Component from "@/components/ui/star-button";
+import StarButton from "@/components/ui/star-button";
 
 const pageStyles = `
   @keyframes word-appear {
@@ -102,7 +102,7 @@ export default function Hero() {
           </p>
 
           <div className="word-animate" data-delay="3200" style={{ display: "inline-block" }}>
-            <Component />
+            <StarButton className="text-[#704a25] bg-[#f8f4f0] border-[3px] border-[#f8f4f0] ">Contact us</StarButton>
           </div>
 
         </div>

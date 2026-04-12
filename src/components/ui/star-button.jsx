@@ -1,21 +1,20 @@
 import React from "react"
 
-const Button = () => {
+const StarButton = ({ children, className = "" }) => {
   return (
     <button
-      className="
+      className={`
         group relative px-[35px] py-[12px] 
-        text-[17px] font-medium 
-        text-[#704a25] 
-        bg-[#f8f4f0] 
-        border-[3px] border-[#f8f4f0] 
+        text-[17px] font-medium
         rounded-md 
         shadow-[0_0_0_#f8f4f08c] 
         transition-all duration-300 ease-in-out 
         cursor-pointer
         hover:bg-transparent hover:text-[#f8f4f0] hover:shadow-[0_0_25px_#f8f4f08c]
         active:scale-95
-      ">Contact us
+        ${className}
+      `}
+      >{children}
 
       {/* Star 1 */}
       <div className="absolute top-[20%] left-[20%] w-[25px] z-[-5] transition-all duration-[1000ms] ease-[cubic-bezier(0.05,0.83,0.43,0.96)] drop-shadow-[0_0_0_var(--tw-shadow-color)] group-hover:top-[-80%] group-hover:left-[-30%] group-hover:drop-shadow-[0_0_10px_var(--tw-shadow-color)] group-hover:z-[2]">
@@ -54,4 +53,4 @@ const Star = () => (
   </svg>
 )
 
-export default Button
+export default StarButton
