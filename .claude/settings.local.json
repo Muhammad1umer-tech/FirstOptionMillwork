@@ -2,6 +2,9 @@
   "permissions": {
     "additionalDirectories": [
       "c:\\Users\\Pc\\Desktop\\umer\\fom\\src\\app"
+    ],
+    "allow": [
+      "Bash(npx next *)"
     ]
   }
 }
