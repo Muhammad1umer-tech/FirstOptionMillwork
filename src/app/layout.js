@@ -2,6 +2,14 @@ import { Montserrat, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
+export const metadata = {
+  title: "First Option Millwork",
+  description: "Custom millwork solutions",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
