@@ -127,8 +127,8 @@ export default function CeoProfile() {
                     </svg>
                   ),
                   label: "Phone",
-                  value: "+1 (905) 761-7474",
-                  href: "tel:+19057617474",
+                  value: "+1 (416) 988-6396",
+                  href: "tel:+14169886396",
                 },
                 {
                   icon: (
@@ -149,7 +149,7 @@ export default function CeoProfile() {
                     </svg>
                   ),
                   label: "Location",
-                  value: "Toronto, Ontario, Canada",
+                  value: "North York, Ontario, Canada",
                   href: null,
                 },
               ].map((item, i) => (

@@ -2,44 +2,7 @@
 
 import { useRef, useState } from "react";
 import SectionHeader from "@/components/ui/section-header";
-
-function TiltImage({ src, alt, className = "" }) {
-  const ref = useRef(null);
-  const [style, setStyle] = useState({});
-
-  const handleMouseMove = (e) => {
-    if (!ref.current) return;
-    const { left, top, width, height } = ref.current.getBoundingClientRect();
-    const x = e.clientX - left;
-    const y = e.clientY - top;
-    const rotateX = ((y - height / 2) / (height / 2)) * -8;
-    const rotateY = ((x - width / 2) / (width / 2)) * 8;
-    setStyle({
-      transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.04, 1.04, 1.04)`,
-      transition: "transform 0.1s ease-out",
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setStyle({
-      transform: "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)",
-      transition: "transform 0.4s ease-in-out",
-    });
-  };
-
-  return (
-    <div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={style}
-      className={`relative overflow-hidden rounded-xl shadow-xl ${className}`}
-    >
-      <img src={src} alt={alt} className="w-full h-full object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent pointer-events-none" />
-    </div>
-  );
-}
+import TiltCard from "@/components/ui/tilt-card";
 
 function FeatureItem({ title, description }) {
   return (
@@ -114,7 +77,7 @@ export default function ServicesSection2() {
             all types of interior styles. The "Shaker" style of furniture was first built in
             the 1800s by a religious group that goes by the same name.
           </p>
-          <TiltImage
+          <TiltCard
             src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
             alt="Shaker Kitchen"
             className="w-full aspect-[4/3]"
@@ -130,7 +93,7 @@ export default function ServicesSection2() {
       {/* Second Content Block */}
       <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-16 items-center">
         {/* Left Image */}
-        <TiltImage
+        <TiltCard
           src="https://images.unsplash.com/photo-1556911220-bff31c812dba"
           alt="Shaker Cabinet Design"
           className="w-full aspect-[4/3]"

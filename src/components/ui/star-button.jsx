@@ -1,8 +1,12 @@
 import React from "react"
+import { useRouter } from "next/navigation"
 
-const StarButton = ({ children, className = "" }) => {
+const StarButton = ({ children, className = "", href = "/contact" }) => {
+  const router = useRouter()
+
   return (
     <button
+      onClick={() => router.push(href)}
       className={`
         group relative px-[35px] py-[12px] 
         text-[17px] font-medium

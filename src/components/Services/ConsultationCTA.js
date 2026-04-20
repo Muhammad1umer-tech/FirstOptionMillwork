@@ -2,9 +2,35 @@
 
 import { useEffect, useRef, useState } from "react";
 
+const CALENDLY_URL = "https://calendly.com/firstoptionmillwork/30min";
+
+function openCalendly() {
+  if (typeof window !== "undefined" && window.Calendly) {
+    window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+  }
+}
+
 export default function ConsultationCTA() {
   const [visible, setVisible] = useState(false);
   const ref = useRef(null);
+
+  useEffect(() => {
+    // Load Calendly widget assets
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://assets.calendly.com/assets/external/widget.css";
+    document.head.appendChild(link);
+
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.head.removeChild(link);
+      document.body.removeChild(script);
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -85,7 +111,7 @@ export default function ConsultationCTA() {
             Walk through every detail with our craftsmen — material, finish, and fit.
           </p>
 
-          {/* Button */}
+          {/* Button + Calendly badge */}
           <div
             style={{
               opacity: visible ? 1 : 0,
@@ -93,9 +119,9 @@ export default function ConsultationCTA() {
               transition: "opacity 0.5s ease 0.95s, transform 0.5s ease 0.95s",
             }}
           >
-            <a
-              href="/contact"
-              className="group relative inline-flex items-center gap-3 border border-white/20 hover:border-[#e2be96] text-white text-[10px] tracking-[3px] uppercase px-7 py-3.5 overflow-hidden transition-colors duration-300"
+            <button
+              onClick={openCalendly}
+              className="group relative inline-flex items-center gap-3 border border-white/20 hover:border-[#e2be96] text-white text-[10px] tracking-[3px] uppercase px-7 py-3.5 overflow-hidden transition-colors duration-300 cursor-pointer"
             >
               <span className="absolute inset-0 bg-[#e2be96]/10 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" />
               <span className="relative">Book Now</span>
@@ -110,7 +136,20 @@ export default function ConsultationCTA() {
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </a>
+            </button>
+
+            {/* Calendly badge */}
+            <div className="flex items-center gap-1.5 mt-3">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#e2be96" strokeWidth="2" opacity="0.6">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              <p className="text-[9px] tracking-[2px] uppercase text-white/30">
+                Scheduling via Calendly
+              </p>
+            </div>
           </div>
 
           {/* Bottom corner mark */}

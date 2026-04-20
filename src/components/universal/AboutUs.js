@@ -1,5 +1,14 @@
 "use client";
 import { useState, useEffect, useRef } from "react"
+import { useRouter } from "next/navigation"
+
+const CALENDLY_URL = "https://calendly.com/firstoptionmillwork/30min";
+
+function openCalendly() {
+  if (typeof window !== "undefined" && window.Calendly) {
+    window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+  }
+}
 import {
   Pen, PaintBucket, Home, Ruler, PenTool, Building2,
   Award, Users, Calendar, CheckCircle, Sparkles, Star,
@@ -15,6 +24,7 @@ export default function AboutUsSection() {
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
   const isStatsInView = useInView(statsRef, { once: true, amount: 0.3 })
 
+  const router = useRouter()
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] })
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -50])
   const y2 = useTransform(scrollYProgress, [0, 1], [0, 50])
@@ -22,6 +32,23 @@ export default function AboutUsSection() {
   const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -20])
 
   useEffect(() => { setIsVisible(true) }, [])
+
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://assets.calendly.com/assets/external/widget.css";
+    document.head.appendChild(link);
+
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.head.removeChild(link);
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -175,6 +202,7 @@ export default function AboutUsSection() {
                     className="bg-white text-[#202e44] px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => router.push("/gallery")}
                   >
                     Our Portfolio <ArrowRight className="w-4 h-4" />
                   </motion.button>
@@ -260,13 +288,25 @@ export default function AboutUsSection() {
             <h3 className="text-2xl font-medium mb-2">Ready to transform your space?</h3>
             <p className="text-white/80">Let's create something beautiful together.</p>
           </div>
-          <motion.button
-            className="bg-[#88734C] hover:bg-[#88734C]/90 text-white px-6 py-3 rounded-lg flex items-center gap-2 font-medium transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Get Started <ArrowRight className="w-4 h-4" />
-          </motion.button>
+          <div className="flex flex-col items-center gap-2">
+            <motion.button
+              className="bg-[#88734C] hover:bg-[#88734C]/90 text-white px-6 py-3 rounded-lg flex items-center gap-2 font-medium transition-colors cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={openCalendly}
+            >
+              Get Started <ArrowRight className="w-4 h-4" />
+            </motion.button>
+            <div className="flex items-center gap-1.5">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/40">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              <p className="text-[9px] tracking-[2px] uppercase text-white/40">Book via Calendly</p>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
     </section>

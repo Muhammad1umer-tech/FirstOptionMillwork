@@ -1,8 +1,16 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { HoverButton } from "@/components/ui/hover-glow-button";
+
+const CALENDLY_URL = "https://calendly.com/firstoptionmillwork/30min";
+
+function openCalendly() {
+  if (typeof window !== "undefined" && window.Calendly) {
+    window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+  }
+}
 
 /* ===== DATA ===== */
 const services = [
@@ -45,6 +53,23 @@ function Dropdown({ items, closing, href = "/services" }) {
 export default function Navbar() {
   const [open, setOpen] = useState(null);
   const [closing, setClosing] = useState(null);
+
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://assets.calendly.com/assets/external/widget.css";
+    document.head.appendChild(link);
+
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.head.removeChild(link);
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const hoverTimer = useRef(null);
   const closeTimer = useRef(null);
@@ -95,24 +120,24 @@ export default function Navbar() {
             Mon–Fri 08:00 – 18:00
           </span>
 
-          <a href="mailto:info@firstoption.ca" className="flex items-center gap-1.5 border-l border-white/20 pl-4 hover:text-white transition">
+          <a href="mailto:info@firstoptionmillwork.ca" className="flex items-center gap-1.5 border-l border-white/20 pl-4 hover:text-white transition">
             <lord-icon
               src="https://cdn.lordicon.com/nzixoeyk.json"
               trigger="loop"
               colors="primary:#ffffff"
               style={{ width: 16, height: 16 }}
             />
-            info@firstoption.ca
+            info@firstoptionmillwork.ca
           </a>
 
-          <a href="tel:+19057617474" className="flex items-center gap-1.5 border-l border-white/20 pl-4 hover:text-white transition">
+          <a href="tel:+14169886396" className="flex items-center gap-1.5 border-l border-white/20 pl-4 hover:text-white transition">
             <lord-icon
               src="https://cdn.lordicon.com/tftaqjwp.json"
               trigger="loop"
               colors="primary:#ffffff"
               style={{ width: 16, height: 16 }}
             />
-            +1 (905) 761-7474
+            +1 (416) 988-6396
           </a>
 
           <a href="tel:+16478225127" className="flex items-center gap-1.5 border-l border-white/20 pl-4 hover:text-white transition">
@@ -122,7 +147,7 @@ export default function Navbar() {
               colors="primary:#ffffff"
               style={{ width: 16, height: 16 }}
             />
-            +1 (647) 822-5127
+            +1 (437) 855-2924
           </a>
         </div>
       </div>
@@ -190,17 +215,19 @@ export default function Navbar() {
           </nav>
 
           {/* CTA */}
-          <Link href="/contact">
-            <HoverButton
-              glowColor="#ff8c00"
-              backgroundColor="#3e2723"
-              textColor="#f8f4f0"
-              hoverTextColor="#ceb79f"
-              className="shadow-lg"
-            >
-              Contact Us
-            </HoverButton>
-          </Link>
+          <div className="flex flex-col items-center gap-1">
+            <button onClick={openCalendly} className="cursor-pointer">
+              <HoverButton
+                glowColor="#ff8c00"
+                backgroundColor="#3e2723"
+                textColor="#f8f4f0"
+                hoverTextColor="#ceb79f"
+                className="shadow-lg"
+              >
+                Contact Us via Calendly
+              </HoverButton>
+            </button>
+          </div>
 
         </div>
       </div>

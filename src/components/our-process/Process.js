@@ -2,8 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Navbar from "@/components/universal/Navbar";
-import Footer from "@/components/universal/Footer";
 
 /* ─────────────────────────────────────────────────────────
    Data
