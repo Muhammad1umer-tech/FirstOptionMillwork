@@ -33,7 +33,7 @@ function ImageCard({ item, index, visible }) {
     <div
       className="relative group overflow-hidden rounded-2xl cursor-pointer bg-[#e8e4dc]"
       style={{
-        height: "320px",
+        height: "clamp(180px, 30vw, 320px)",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0) scale(1)" : "translateY(20px) scale(0.97)",
         transition: `opacity 0.55s ease ${delay}s, transform 0.55s ease ${delay}s`,
@@ -75,7 +75,7 @@ function GroupSection({ id, label, items }) {
 
       {/* Section label row */}
       <div
-        className="max-w-[1600px] mx-auto px-8 flex items-center gap-4 mb-10"
+        className="max-w-[1600px] mx-auto px-4 sm:px-8 flex items-center gap-4 mb-8 sm:mb-10"
         style={{
           opacity: visible ? 1 : 0,
           transform: visible ? "translateY(0)" : "translateY(14px)",
@@ -89,7 +89,7 @@ function GroupSection({ id, label, items }) {
       </div>
 
       {/* 4-column grid */}
-      <div className="max-w-[1600px] mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         {items.map((item, idx) => (
           <ImageCard key={idx} item={item} index={idx} visible={visible} />
         ))}

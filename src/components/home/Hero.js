@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import StarButton from "@/components/ui/star-button";
 
 const pageStyles = `
@@ -17,8 +17,6 @@ const pageStyles = `
 `;
 
 export default function Hero() {
-  const [active, setActive] = useState(0);
-
   useEffect(() => {
     const wordElements = document.querySelectorAll(".word-animate");
     wordElements.forEach((word) => {
@@ -33,7 +31,7 @@ export default function Hero() {
     <>
       <style>{pageStyles}</style>
       <section
-        className="relative h-[95vh] w-full flex items-center justify-center text-white overflow-hidden"
+        className="relative min-h-[92vh] sm:min-h-[95vh] w-full flex items-center justify-center text-white overflow-hidden"
         style={{ background: "url('/hero.jpg') center center / cover no-repeat" }}
       >
         {/* Dark Overlay */}
@@ -45,27 +43,10 @@ export default function Hero() {
           style={{ background: "radial-gradient(ellipse 88% 88% at center, transparent 36%, rgba(4,3,2,0.78) 100%)" }}
         />
 
-        {/* Left Slider */}
-        {/* <div className="absolute left-10 top-1/2 -translate-y-1/2 flex flex-col gap-5 z-[4]">
-          {["01", "02", "03"].map((num, i) => (
-            <span
-              key={num}
-              onClick={() => setActive(i)}
-              className={`text-sm cursor-pointer transition-opacity duration-300 font-heading
-                ${active === i
-                  ? "border border-white px-3 py-2 opacity-100"
-                  : "opacity-40 hover:opacity-100"
-                }`}
-            >
-              {num}
-            </span>
-          ))}
-        </div> */}
-
         {/* Content */}
-        <div className="relative z-[3] max-w-[700px] text-center px-4">
+        <div className="relative z-[3] max-w-[700px] w-full text-center px-5 sm:px-6">
 
-          <span className="text-[12px] tracking-[3px] uppercase font-body">
+          <span className="text-[10px] sm:text-[12px] tracking-[3px] uppercase font-body">
             <span className="word-animate" data-delay="200">WELCOME</span>
             <span className="word-animate" data-delay="350">TO</span>
             <span className="word-animate" data-delay="500">First</span>
@@ -74,8 +55,11 @@ export default function Hero() {
           </span>
 
           <h1
-            className="text-[80px] font-extrabold leading-[1.05] my-5 uppercase font-heading tracking-[-1px]"
-            style={{ textShadow: "0 6px 25px rgba(0,0,0,0.4)" }}
+            className="font-extrabold leading-[1.05] my-4 sm:my-5 uppercase font-heading tracking-[-1px]"
+            style={{
+              fontSize: "clamp(2.4rem, 8vw, 5rem)",
+              textShadow: "0 6px 25px rgba(0,0,0,0.4)",
+            }}
           >
             <span className="word-animate" data-delay="1000">Where</span>
             <span className="word-animate" data-delay="1150">Ideas</span>
@@ -84,7 +68,7 @@ export default function Hero() {
             <span className="word-animate" data-delay="1450">Craftsmanship</span>
           </h1>
 
-          <p className="text-base leading-relaxed opacity-85 max-w-[520px] mx-auto mb-9 font-body">
+          <p className="text-sm sm:text-base leading-relaxed opacity-85 max-w-[520px] mx-auto mb-8 sm:mb-9 font-body">
             <span className="word-animate" data-delay="1700">We</span>
             <span className="word-animate" data-delay="1800">design</span>
             <span className="word-animate" data-delay="1900">and</span>
@@ -102,7 +86,7 @@ export default function Hero() {
           </p>
 
           <div className="word-animate" data-delay="3200" style={{ display: "inline-block" }}>
-            <StarButton className="text-[#704a25] bg-[#f8f4f0] border-[3px] border-[#f8f4f0] ">Contact us</StarButton>
+            <StarButton className="text-[#704a25] bg-[#f8f4f0] border-[3px] border-[#f8f4f0]">Contact us</StarButton>
           </div>
 
         </div>

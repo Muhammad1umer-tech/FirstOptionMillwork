@@ -14,10 +14,10 @@ export default function Footer () {
         {/* LOGO + ABOUT */}
         <div className="flex flex-col gap-4">
           <Image
-            src="/footer-logo.png"
+            src="/logo.png"
             alt="ActivationLed logo"
-            width={180}
-            height={50}
+            width={250}
+            height={100}
             className="object-contain opacity-90"
           />
 

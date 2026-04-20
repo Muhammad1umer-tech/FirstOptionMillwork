@@ -17,7 +17,7 @@ const inter = Inter({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${montserrat.variable} ${inter.variable}`}>
-      <body className="bg-[#0f0a08] text-white">
+      <body className="bg-[#0f0a08] text-white overflow-x-hidden">
         <Script src="https://cdn.lordicon.com/lordicon.js" strategy="lazyOnload" />
         {children}
       </body>

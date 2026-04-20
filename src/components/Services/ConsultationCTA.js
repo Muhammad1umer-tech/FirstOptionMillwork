@@ -15,7 +15,6 @@ export default function ConsultationCTA() {
   const ref = useRef(null);
 
   useEffect(() => {
-    // Load Calendly widget assets
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = "https://assets.calendly.com/assets/external/widget.css";
@@ -40,18 +39,18 @@ export default function ConsultationCTA() {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="w-full bg-[#f5f3ef] py-20 px-6">
-      {/* Card — centered, constrained width */}
+    <section className="w-full bg-[#f5f3ef] py-16 sm:py-20 px-5 sm:px-6">
+      {/* Card */}
       <div
         ref={ref}
-        className="max-w-4xl mx-auto flex overflow-hidden shadow-2xl"
+        className="max-w-4xl mx-auto flex flex-col md:flex-row overflow-hidden shadow-2xl"
         style={{
           opacity: visible ? 1 : 0,
           transform: visible ? "translateY(0)" : "translateY(36px)",
@@ -59,9 +58,9 @@ export default function ConsultationCTA() {
         }}
       >
         {/* ── Left: dark content panel ── */}
-        <div className="relative z-10 bg-[#111] flex flex-col justify-center px-10 py-12 w-[52%] flex-shrink-0">
+        <div className="relative z-10 bg-[#111] flex flex-col justify-center px-8 sm:px-10 py-10 sm:py-12 md:w-[52%] flex-shrink-0">
 
-          {/* Top gold line that draws in */}
+          {/* Top gold line */}
           <div
             className="absolute top-0 left-0 h-[2px] bg-[#e2be96]"
             style={{
@@ -72,7 +71,7 @@ export default function ConsultationCTA() {
 
           {/* Eyebrow */}
           <div
-            className="flex items-center gap-2 mb-6"
+            className="flex items-center gap-2 mb-5 sm:mb-6"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateX(0)" : "translateX(-14px)",
@@ -87,7 +86,7 @@ export default function ConsultationCTA() {
 
           {/* Heading */}
           <h2
-            className="text-3xl font-bold text-white leading-snug mb-4"
+            className="text-2xl sm:text-3xl font-bold text-white leading-snug mb-4"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateY(0)" : "translateY(20px)",
@@ -101,7 +100,7 @@ export default function ConsultationCTA() {
 
           {/* Body */}
           <p
-            className="text-[12.5px] text-white/45 leading-relaxed mb-9 max-w-[240px]"
+            className="text-[12.5px] text-white/45 leading-relaxed mb-8 sm:mb-9 max-w-[280px]"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateY(0)" : "translateY(14px)",
@@ -111,7 +110,7 @@ export default function ConsultationCTA() {
             Walk through every detail with our craftsmen — material, finish, and fit.
           </p>
 
-          {/* Button + Calendly badge */}
+          {/* Button */}
           <div
             style={{
               opacity: visible ? 1 : 0,
@@ -126,19 +125,14 @@ export default function ConsultationCTA() {
               <span className="absolute inset-0 bg-[#e2be96]/10 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" />
               <span className="relative">Book Now</span>
               <svg
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
+                width="13" height="13" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" strokeWidth="2"
                 className="relative group-hover:translate-x-1.5 transition-transform duration-300"
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
 
-            {/* Calendly badge */}
             <div className="flex items-center gap-1.5 mt-3">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#e2be96" strokeWidth="2" opacity="0.6">
                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -156,9 +150,9 @@ export default function ConsultationCTA() {
           <div className="absolute bottom-5 right-5 w-5 h-5 border-b border-r border-white/10" />
         </div>
 
-        {/* ── Right: image panel with clip-path reveal ── */}
+        {/* ── Right: image panel ── */}
         <div
-          className="relative flex-1 overflow-hidden"
+          className="relative flex-1 min-h-[220px] sm:min-h-[280px] md:min-h-0 overflow-hidden"
           style={{
             clipPath: visible ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)",
             transition: "clip-path 1s cubic-bezier(0.77, 0, 0.175, 1) 0.25s",
@@ -173,7 +167,6 @@ export default function ConsultationCTA() {
               transition: "transform 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s",
             }}
           />
-          {/* Subtle left-edge vignette to blend with dark panel */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent pointer-events-none" />
 
           {/* Floating year tag */}

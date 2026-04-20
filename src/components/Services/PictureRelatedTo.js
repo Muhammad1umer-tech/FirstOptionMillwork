@@ -46,7 +46,7 @@ function ImageCard({ item, index, visible }) {
     <div
       className="relative group overflow-hidden rounded-3xl cursor-pointer bg-[#e8e4dc]"
       style={{
-        height: "480px",
+        height: "clamp(260px, 40vw, 480px)",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0) scale(1)" : "translateY(36px) scale(0.97)",
         transition: `opacity 0.7s ease ${delay}s, transform 0.7s ease ${delay}s`,

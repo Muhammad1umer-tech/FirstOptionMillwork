@@ -20,12 +20,12 @@ const SectionHeader = ({
   dark = false,
 }) => {
   return (
-    <div className="w-full text-center px-8">
+    <div className="w-full text-center px-4 sm:px-8">
 
       {/* Eyebrow */}
       {eyebrow && (
         <span
-          className={`block text-[18px] tracking-[6px] uppercase font-medium mb-2 ${
+          className={`block text-[13px] sm:text-[15px] tracking-[4px] sm:tracking-[6px] uppercase font-medium mb-2 ${
             dark ? "text-amber-300/70" : "text-[#88734C]"
           }`}
         >
@@ -38,7 +38,7 @@ const SectionHeader = ({
         className={`font-extrabold leading-tight mb-4 ${
           dark ? "text-white" : "text-[#1a1a1a]"
         }`}
-        style={{ fontSize: "clamp(2rem, 3vw, 6rem)" }}
+        style={{ fontSize: "clamp(1.75rem, 4vw, 3.25rem)" }}
       >
         {titleBefore}
         {titleHighlight && (

@@ -17,17 +17,17 @@ export default function ContactCTA() {
           observer.disconnect();
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.15 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="w-full bg-[#f5f3ef] py-24 px-6">
+    <section className="w-full bg-[#f5f3ef] py-16 sm:py-24 px-5 sm:px-6">
       <div
         ref={ref}
-        className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center"
+        className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 md:gap-12 items-center"
         style={{
           opacity: visible ? 1 : 0,
           transform: visible ? "translateY(0)" : "translateY(32px)",
@@ -45,7 +45,7 @@ export default function ContactCTA() {
           <TiltCard
             src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=1470&auto=format&fit=crop"
             alt="Contact First Option Millwork"
-            className="h-[380px] w-full"
+            className="h-[260px] sm:h-[320px] md:h-[380px] w-full"
           />
         </div>
 
@@ -54,7 +54,7 @@ export default function ContactCTA() {
 
           {/* Eyebrow */}
           <div
-            className="flex items-center gap-3 mb-8"
+            className="flex items-center gap-3 mb-6 sm:mb-8"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateX(0)" : "translateX(20px)",
@@ -69,7 +69,7 @@ export default function ContactCTA() {
 
           {/* Heading */}
           <h2
-            className="text-4xl font-bold text-[#1a1a1a] leading-tight mb-5"
+            className="text-3xl sm:text-4xl font-bold text-[#1a1a1a] leading-tight mb-4 sm:mb-5"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateY(0)" : "translateY(18px)",
@@ -83,7 +83,7 @@ export default function ContactCTA() {
 
           {/* Divider */}
           <div
-            className="w-10 h-px bg-[#e2be96] mb-6"
+            className="w-10 h-px bg-[#e2be96] mb-5 sm:mb-6"
             style={{
               opacity: visible ? 1 : 0,
               transition: "opacity 0.5s ease 0.65s",
@@ -92,7 +92,7 @@ export default function ContactCTA() {
 
           {/* Body */}
           <p
-            className="text-[13.5px] text-[#666] leading-relaxed mb-10 max-w-[300px]"
+            className="text-[13.5px] text-[#666] leading-relaxed mb-8 sm:mb-10 max-w-[340px]"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateY(0)" : "translateY(14px)",
@@ -113,16 +113,12 @@ export default function ContactCTA() {
           >
             <button
               onClick={() => router.push("/contact")}
-              className="group self-start relative inline-flex items-center gap-3 bg-[#1a1a1a] hover:bg-[#88734C] text-white text-[10px] tracking-[3px] uppercase font-medium px-8 py-4 overflow-hidden transition-colors duration-300 cursor-pointer"
+              className="group self-start relative inline-flex items-center gap-3 bg-[#1a1a1a] hover:bg-[#88734C] text-white text-[10px] tracking-[3px] uppercase font-medium px-7 sm:px-8 py-4 overflow-hidden transition-colors duration-300 cursor-pointer"
             >
               <span className="relative">Contact Us</span>
               <svg
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
+                width="13" height="13" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" strokeWidth="2"
                 className="relative group-hover:translate-x-1.5 transition-transform duration-300"
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />

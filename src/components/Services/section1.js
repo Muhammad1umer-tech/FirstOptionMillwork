@@ -12,7 +12,7 @@ export default function ServicesHero() {
     <div className="w-full">
       {/* Hero Section */}
       <div
-        className="relative h-[520px] flex items-center justify-center text-center overflow-hidden"
+        className="relative h-[380px] sm:h-[460px] md:h-[520px] flex items-center justify-center text-center overflow-hidden"
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c')",

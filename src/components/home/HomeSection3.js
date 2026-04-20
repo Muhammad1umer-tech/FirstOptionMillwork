@@ -94,22 +94,21 @@ function SectionRow({ row }) {
   return (
     <div
       ref={ref}
-      className={`flex items-stretch min-h-[680px] relative z-[1] overflow-hidden pb-[40px]
-        ${row.reverse ? "flex-row-reverse" : ""}
-        max-[900px]:flex-col max-[900px]:min-h-0`}
+      className={`flex items-stretch md:min-h-[600px] lg:min-h-[680px] relative z-[1] overflow-hidden pb-0 md:pb-[40px]
+        flex-col ${row.reverse ? "md:flex-row-reverse" : "md:flex-row"}`}
     >
       {/* Content */}
       <div
-        className={`flex-[0_0_42%] flex flex-col justify-center relative overflow-hidden
+        className={`w-full md:flex-[0_0_42%] flex flex-col justify-center relative overflow-hidden
           transition-all duration-[800ms] ease-out
-          max-[900px]:w-full max-[900px]:px-7 max-[900px]:py-[60px]
+          px-6 py-12 sm:px-10 sm:py-14
           ${row.reverse
-            ? "px-[70px] py-[90px] pr-[100px]"
-            : "px-[100px] py-[90px] pr-[70px]"
+            ? "md:px-[70px] md:py-[90px] md:pr-[80px]"
+            : "md:px-[80px] md:py-[90px] md:pr-[70px]"
           }
           ${visible
             ? "opacity-100 translate-x-0"
-            : row.reverse ? "opacity-0 translate-x-[50px]" : "opacity-0 -translate-x-[50px]"
+            : row.reverse ? "opacity-0 md:translate-x-[50px]" : "opacity-0 md:-translate-x-[50px]"
           }`}
       >
         {/* Number */}
@@ -136,7 +135,7 @@ function SectionRow({ row }) {
 
         {/* Paragraphs */}
         {row.paragraphs.map((p, i) => (
-          <p key={i} className="text-sm leading-[1.85] text-[#444] font-body font-light max-w-[400px] mb-4">
+          <p key={i} className="text-sm leading-[1.85] text-[#444] font-body font-light max-w-full md:max-w-[400px] mb-4">
             {p}
           </p>
         ))}
@@ -156,12 +155,12 @@ function SectionRow({ row }) {
 
       {/* Image */}
       <div
-        className={`flex-1 overflow-hidden relative z-[1]
+        className={`md:flex-1 overflow-hidden relative z-[1]
           transition-all duration-[800ms] ease-out delay-150
-          max-[900px]:h-[300px]
+          h-[260px] sm:h-[340px] md:h-auto
           ${visible
             ? "opacity-100 translate-x-0"
-            : row.reverse ? "opacity-0 -translate-x-[50px]" : "opacity-0 translate-x-[50px]"
+            : row.reverse ? "opacity-0 md:-translate-x-[50px]" : "opacity-0 md:translate-x-[50px]"
           }`}
       >
         <img
@@ -178,7 +177,7 @@ export default function HomeSection3() {
   return (
     <>
       <style>{auroraStyles}</style>
-      <section className="relative bg-[#fafafa] max-w-full px-[100px] max-[900px]:px-0 py-10 max-[900px]:py-10 overflow-hidden">
+      <section className="relative bg-[#fafafa] w-full px-0 sm:px-6 lg:px-12 xl:px-[100px] py-10 overflow-hidden">
 
         {/* Aurora background */}
         <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">

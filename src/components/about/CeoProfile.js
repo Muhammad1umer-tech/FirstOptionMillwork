@@ -9,21 +9,19 @@ export default function CeoProfile() {
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
 
   return (
-    <section className="w-full bg-[#fafaf8] py-24 px-6">
-      <div
-        ref={ref}
-        className="max-w-5xl mx-auto"
-      >
+    <section className="w-full bg-[#fafaf8] py-16 sm:py-24 px-5 sm:px-6">
+      <div ref={ref} className="max-w-5xl mx-auto">
+
         {/* Eyebrow */}
         <div
-          className="flex items-center gap-3 mb-14"
+          className="flex items-center gap-3 mb-10 sm:mb-14"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(16px)",
@@ -36,8 +34,8 @@ export default function CeoProfile() {
           </p>
         </div>
 
-        {/* Main card */}
-        <div className="grid md:grid-cols-[380px_1fr] gap-0 overflow-hidden shadow-xl">
+        {/* Main card — stacks on mobile, side-by-side on md+ */}
+        <div className="grid md:grid-cols-[340px_1fr] lg:grid-cols-[380px_1fr] gap-0 overflow-hidden shadow-xl">
 
           {/* ── Left: Photo panel ── */}
           <div
@@ -50,9 +48,11 @@ export default function CeoProfile() {
             <img
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=687&auto=format&fit=crop"
               alt="Bassam Ibrahim — CEO"
-              className="w-full h-full object-cover object-top"
+              className="w-full object-cover object-top"
               style={{
-                minHeight: "460px",
+                minHeight: "320px",
+                maxHeight: "460px",
+                height: "100%",
                 transform: visible ? "scale(1)" : "scale(1.08)",
                 transition: "transform 1.4s cubic-bezier(0.25,0.46,0.45,0.94) 0.2s",
               }}
@@ -63,7 +63,7 @@ export default function CeoProfile() {
 
             {/* Name badge over image */}
             <div
-              className="absolute bottom-0 left-0 right-0 p-7"
+              className="absolute bottom-0 left-0 right-0 p-6 sm:p-7"
               style={{
                 opacity: visible ? 1 : 0,
                 transition: "opacity 0.6s ease 1s",
@@ -72,7 +72,7 @@ export default function CeoProfile() {
               <p className="text-[9px] tracking-[4px] uppercase text-[#e2be96] mb-1">
                 Chief Executive Officer
               </p>
-              <h2 className="text-2xl font-bold text-white leading-tight">
+              <h2 className="text-xl sm:text-2xl font-bold text-white leading-tight">
                 Bassam Ibrahim
               </h2>
             </div>
@@ -83,7 +83,7 @@ export default function CeoProfile() {
 
           {/* ── Right: Info panel ── */}
           <div
-            className="bg-white flex flex-col justify-between p-10"
+            className="bg-white flex flex-col justify-between p-7 sm:p-10"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateX(0)" : "translateX(24px)",
@@ -92,11 +92,11 @@ export default function CeoProfile() {
           >
             {/* Top: Bio */}
             <div>
-              <div className="w-10 h-px bg-[#e2be96] mb-7" />
-              <h3 className="text-[13px] font-semibold text-[#88734C] tracking-widest uppercase mb-5">
+              <div className="w-10 h-px bg-[#e2be96] mb-6 sm:mb-7" />
+              <h3 className="text-[13px] font-semibold text-[#88734C] tracking-widest uppercase mb-4 sm:mb-5">
                 About Bassam
               </h3>
-              <p className="text-[14px] text-[#444] leading-relaxed mb-5">
+              <p className="text-[14px] text-[#444] leading-relaxed mb-4 sm:mb-5">
                 With over 15 years in premium millwork and cabinetry, Bassam Ibrahim
                 founded First Option Millwork on a single belief — that every home
                 deserves craftsmanship built to last.
@@ -108,7 +108,7 @@ export default function CeoProfile() {
               </p>
 
               {/* Signature line */}
-              <div className="mt-8 flex items-center gap-4">
+              <div className="mt-7 sm:mt-8 flex items-center gap-4">
                 <div className="h-px flex-1 bg-[#f0ece4]" />
                 <p className="text-[11px] tracking-[3px] uppercase text-[#c5b89a]">
                   First Option Millwork
@@ -118,7 +118,7 @@ export default function CeoProfile() {
             </div>
 
             {/* Bottom: Contact details */}
-            <div className="mt-10 space-y-4">
+            <div className="mt-8 sm:mt-10 space-y-4">
               {[
                 {
                   icon: (
@@ -155,7 +155,7 @@ export default function CeoProfile() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-4 group"
+                  className="flex items-center gap-3 sm:gap-4 group"
                   style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? "translateX(0)" : "translateX(12px)",
@@ -165,12 +165,12 @@ export default function CeoProfile() {
                   <div className="w-9 h-9 rounded-full border border-[#e8e2d9] flex items-center justify-center text-[#88734C] flex-shrink-0 group-hover:border-[#88734C] group-hover:bg-[#faf7f3] transition-all duration-300">
                     {item.icon}
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-[10px] tracking-[2px] uppercase text-[#aaa] mb-0.5">{item.label}</p>
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="text-[13px] font-medium text-[#1a1a1a] hover:text-[#88734C] transition-colors duration-200"
+                        className="text-[13px] font-medium text-[#1a1a1a] hover:text-[#88734C] transition-colors duration-200 break-all"
                       >
                         {item.value}
                       </a>
@@ -181,7 +181,6 @@ export default function CeoProfile() {
                 </div>
               ))}
             </div>
-
           </div>
         </div>
       </div>

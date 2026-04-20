@@ -103,12 +103,13 @@ export default function Contact() {
     <div id="contact" className="min-h-screen w-full flex flex-col lg:flex-row">
 
       {/* ══════════ LEFT PANEL ══════════ */}
-      <div className="lg:w-[780px] xl:w-[820px] shrink-0 bg-[#1a1410] flex flex-col justify-between px-10 py-14 gap-12">
+      <div className="w-full lg:w-[640px] xl:w-[780px] shrink-0 bg-[#1a1410] flex flex-col justify-between px-6 sm:px-10 py-10 sm:py-14 gap-10 sm:gap-12">
 
         {/* Brand + Heading */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-5 sm:gap-6">
           <Label>Get In Touch</Label>
-          <h1 className="text-[52px] xl:text-[60px] font-extrabold leading-[0.95] uppercase font-heading tracking-[-2px] text-white">
+          <h1 className="font-extrabold leading-[0.95] uppercase font-heading tracking-[-2px] text-white"
+            style={{ fontSize: "clamp(2.4rem, 6vw, 3.75rem)" }}>
             Let's Build<br />
             <span className="text-[#c8a47a]">Together</span>
           </h1>
@@ -135,7 +136,7 @@ export default function Contact() {
       </div>
 
       {/* ══════════ RIGHT PANEL — Form ══════════ */}
-      <div className="flex-1 bg-[#f8f4f0] flex items-start justify-center px-8 py-14 overflow-y-auto">
+      <div className="flex-1 bg-[#f8f4f0] flex items-start justify-center px-5 sm:px-8 py-10 sm:py-14 overflow-y-auto">
         <div className="w-full max-w-[600px]">
 
           {/* Form header */}
