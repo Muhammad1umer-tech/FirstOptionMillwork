@@ -14,15 +14,18 @@ const commercial = [
 ];
 
 const residential = [
-  { src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=900&auto=format&fit=crop", label: "Custom Kitchen",           tag: "Kitchen" },
-  { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=900&auto=format&fit=crop", label: "White Oak Cabinetry",    tag: "Cabinetry" },
-  { src: "https://images.unsplash.com/photo-1555212697-194d092e3b8f?q=80&w=900&auto=format&fit=crop", label: "Closets & Wardrobes",      tag: "Storage" },
-  { src: "https://images.unsplash.com/photo-1649265825072-f7dd6942baed?q=80&w=900&auto=format&fit=crop", label: "Shaker Cabinets",        tag: "Cabinetry" },
-  { src: "https://images.unsplash.com/photo-1719368472026-dc26f70a9b76?q=80&w=900&auto=format&fit=crop", label: "Modern Kitchen",         tag: "Kitchen" },
-  { src: "https://images.unsplash.com/photo-1601568494843-772eb04aca5d?q=80&w=900&auto=format&fit=crop", label: "Custom Millwork",        tag: "Millwork" },
-  { src: "https://images.unsplash.com/photo-1585687501004-615dfdfde7f1?q=80&w=900&auto=format&fit=crop", label: "Architectural Detail",   tag: "Detail" },
-  { src: "https://images.unsplash.com/photo-1729086046027-09979ade13fd?q=80&w=900&auto=format&fit=crop", label: "Porcelain Surfaces",     tag: "Surfaces" },
-];
+  { src: "gallery/residential/res1/gallery.JPG", label: "Custom Kitchen",           tag: "Kitchen" },
+  { src: "gallery/residential/res2/gallery.jpg", label: "White Oak Cabinetry",    tag: "Cabinetry" },
+  { src: "gallery/residential/res3/gallery.jpg", label: "White Oak Cabinetry",    tag: "Cabinetry" },
+  { src: "gallery/residential/res4/gallery.jpg", label: "White Oak Cabinetry",    tag: "Cabinetry" },
+  { src: "gallery/residential/res5/gallery.jpg", label: "White Oak Cabinetry",    tag: "Cabinetry" },
+  { src: "gallery/residential/res6/gallery.jpg", label: "White Oak Cabinetry",    tag: "Cabinetry" },
+  { src: "gallery/residential/res7/gallery.JPG", label: "White Oak Cabinetry",    tag: "Cabinetry" },
+  { src: "gallery/residential/res8/gallery.JPG", label: "White Oak Cabinetry",    tag: "Cabinetry" },
+  { src: "gallery/residential/res9/gallery.jpg", label: "White Oak Cabinetry",    tag: "Cabinetry" },
+  { src: "gallery/residential/res10/gallery.jpg", label: "White Oak Cabinetry",    tag: "Cabinetry" },
+  { src: "gallery/residential/res11/gallery.jpg", label: "White Oak Cabinetry",    tag: "Cabinetry" },
+  { src: "gallery/residential/res12/gallery.JPG", label: "White Oak Cabinetry",    tag: "Cabinetry" },]
 
 function ImageCard({ item, index, visible }) {
   const col = index % 4;
@@ -33,7 +36,7 @@ function ImageCard({ item, index, visible }) {
     <div
       className="relative group overflow-hidden rounded-2xl cursor-pointer bg-[#e8e4dc]"
       style={{
-        height: "clamp(180px, 30vw, 320px)",
+        height: "clamp(25 0px, 40vw, 500px)",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0) scale(1)" : "translateY(20px) scale(0.97)",
         transition: `opacity 0.55s ease ${delay}s, transform 0.55s ease ${delay}s`,
@@ -89,7 +92,7 @@ function GroupSection({ id, label, items }) {
       </div>
 
       {/* 4-column grid */}
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 grid grid-cols-2 gap-3 sm:gap-4">
         {items.map((item, idx) => (
           <ImageCard key={idx} item={item} index={idx} visible={visible} />
         ))}
