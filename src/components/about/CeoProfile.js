@@ -97,7 +97,7 @@ export default function CeoProfile() {
                 About Bassam
               </h3>
               <p className="text-[14px] text-[#444] leading-relaxed mb-4 sm:mb-5">
-                With over 15 years in premium millwork and cabinetry, Bassam Ibrahim
+                With over 20 years in premium millwork and cabinetry, Bassam Ibrahim
                 founded First Option Millwork on a single belief — that every home
                 deserves craftsmanship built to last.
               </p>
@@ -138,8 +138,8 @@ export default function CeoProfile() {
                     </svg>
                   ),
                   label: "Email",
-                  value: "info@firstoptionmillwork.ca",
-                  href: "mailto:info@firstoptionmillwork.ca",
+                  value: "bassam@firstoptionmillwork.ca",
+                  href: "mailto:bassam@firstoptionmillwork.ca",
                 },
                 {
                   icon: (

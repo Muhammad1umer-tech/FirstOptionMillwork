@@ -14,7 +14,6 @@ const commercial = [
 ];
 
 const residential = [
-  { src: "gallery/residential/res1/gallery.JPG", label: "Custom Kitchen",           tag: "Kitchen" },
   { src: "gallery/residential/res2/gallery.jpg", label: "White Oak Cabinetry",    tag: "Cabinetry" },
   { src: "gallery/residential/res3/gallery.jpg", label: "White Oak Cabinetry",    tag: "Cabinetry" },
   { src: "gallery/residential/res4/gallery.jpg", label: "White Oak Cabinetry",    tag: "Cabinetry" },
@@ -25,6 +24,7 @@ const residential = [
   { src: "gallery/residential/res9/gallery.jpg", label: "White Oak Cabinetry",    tag: "Cabinetry" },
   { src: "gallery/residential/res10/gallery.jpg", label: "White Oak Cabinetry",    tag: "Cabinetry" },
   { src: "gallery/residential/res11/gallery.jpg", label: "White Oak Cabinetry",    tag: "Cabinetry" },
+  { src: "gallery/residential/res1/gallery.JPG", label: "Custom Kitchen",           tag: "Kitchen" },
   { src: "gallery/residential/res12/gallery.JPG", label: "White Oak Cabinetry",    tag: "Cabinetry" },]
 
 function ImageCard({ item, index, visible }) {
@@ -36,7 +36,7 @@ function ImageCard({ item, index, visible }) {
     <div
       className="relative group overflow-hidden rounded-2xl cursor-pointer bg-[#e8e4dc]"
       style={{
-        height: "clamp(25 0px, 40vw, 500px)",
+        height: "clamp(180px, 30vw, 420px)",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0) scale(1)" : "translateY(20px) scale(0.97)",
         transition: `opacity 0.55s ease ${delay}s, transform 0.55s ease ${delay}s`,
@@ -92,7 +92,7 @@ function GroupSection({ id, label, items }) {
       </div>
 
       {/* 4-column grid */}
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 grid grid-cols-2 gap-3 sm:gap-4">
+      <div className="max-w-[1600px] mx-auto grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
         {items.map((item, idx) => (
           <ImageCard key={idx} item={item} index={idx} visible={visible} />
         ))}

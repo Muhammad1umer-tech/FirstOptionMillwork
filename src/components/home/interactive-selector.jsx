@@ -5,34 +5,22 @@ import SectionHeader from '@/components/ui/section-header';
 
 const options = [
   {
-    title: "Custom Millwork",
-    description: "Precision-crafted architectural woodwork",
-    image: "/what-we-offer/1.avif",
-    icon: <FaHammer size={22} className="text-white" />,
+    image: "/cleaness/1.JPG",
   },
   {
-    title: "Fine Cabinets",
-    description: "Bespoke cabinetry built to last",
-    image: "/what-we-offer/2.avif",
-    icon: <FaBoxOpen size={22} className="text-white" />,
+    image: "/cleaness/2.JPG",
   },
   {
-    title: "Custom Kitchens",
-    description: "Tailored kitchens, refined to detail",
-    image: "/what-we-offer/3.avif",
-    icon: <FaUtensils size={22} className="text-white" />,
+    image: "/cleaness/3.JPG",
   },
   {
-    title: "Custom Furniture",
-    description: "Handcrafted pieces for every space",
-    image: "/what-we-offer/4.avif",
-    icon: <FaCouch size={22} className="text-white" />,
+    image: "/cleaness/4.JPG",
   },
   {
-    title: "Interior Trim & Doors",
-    description: "Elegant finishing for premium interiors",
-    image: "/what-we-offer/5.avif",
-    icon: <FaLayerGroup size={22} className="text-white" />,
+    image: "/cleaness/5.JPG",
+  },
+  {
+    image: "/cleaness/6.JPG",
   },
 ];
 
@@ -69,44 +57,6 @@ function DesktopSelector({ activeIndex, setActiveIndex, animatedOptions }) {
           }}
           onClick={() => setActiveIndex(index)}
         >
-          {/* Shadow gradient at bottom */}
-          <div
-            className="absolute left-0 right-0 pointer-events-none transition-all duration-700 ease-in-out"
-            style={{
-              bottom: activeIndex === index ? '0' : '-40px',
-              height: '140px',
-              boxShadow: activeIndex === index
-                ? 'inset 0 -140px 140px -140px #000, inset 0 -140px 140px -80px #000'
-                : 'inset 0 -140px 0px -140px #000, inset 0 -140px 0px -80px #000',
-            }}
-          />
-
-          {/* Label */}
-          <div className="absolute left-0 right-0 bottom-5 flex items-center justify-start h-12 pointer-events-none px-4 gap-3 w-full" style={{ zIndex: 2 }}>
-            <div className="min-w-[44px] max-w-[44px] h-[44px] flex items-center justify-center rounded-full bg-[rgba(32,32,32,0.85)] backdrop-blur-[10px] shadow-[0_1px_4px_rgba(0,0,0,0.18)] border-2 border-[#444] flex-shrink-0">
-              {option.icon}
-            </div>
-            <div className="text-white whitespace-pre">
-              <div
-                className="font-bold text-lg transition-all duration-700 ease-in-out"
-                style={{
-                  opacity: activeIndex === index ? 1 : 0,
-                  transform: activeIndex === index ? 'translateX(0)' : 'translateX(25px)',
-                }}
-              >
-                {option.title}
-              </div>
-              <div
-                className="text-base text-gray-300 transition-all duration-700 ease-in-out"
-                style={{
-                  opacity: activeIndex === index ? 1 : 0,
-                  transform: activeIndex === index ? 'translateX(0)' : 'translateX(25px)',
-                }}
-              >
-                {option.description}
-              </div>
-            </div>
-          </div>
         </div>
       ))}
     </div>
@@ -201,11 +151,11 @@ const HomeSection4 = () => {
       {/* Header */}
       <div className="relative z-10 w-full max-w-3xl mb-10 sm:mb-12">
         <SectionHeader
-          eyebrow="Our Services"
-          titleBefore="Bespoke "
-          titleHighlight="Millwork"
-          titleAfter=" & Cabinetry"
-          subtitle="Crafted with precision and built to endure"
+          eyebrow="Our Craft"
+          titleBefore="What We Do is "
+          titleHighlight="best & finest"
+          titleAfter=" Millwork & Cabinetry"
+          subtitle="Premium Custom Millwork across Toronto & GTA"
           dark={true}
         />
       </div>

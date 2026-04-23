@@ -43,7 +43,7 @@ export default function ContactCTA() {
           }}
         >
           <TiltCard
-            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=1470&auto=format&fit=crop"
+            src="/cleaness/7.JPG"
             alt="Contact First Option Millwork"
             className="h-[260px] sm:h-[320px] md:h-[380px] w-full"
           />
@@ -127,10 +127,10 @@ export default function ContactCTA() {
 
             {/* Response badge */}
             <div className="flex items-center gap-2">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#88734C" strokeWidth="2" opacity="0.7">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="gray" strokeWidth="2" opacity="0.7">
                 <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
               </svg>
-              <p className="text-[9px] tracking-[2px] uppercase text-[#aaa]">
+              <p className="text-[9px] tracking-[2px] uppercase text-gray-600">
                 We respond within 24 hrs
               </p>
             </div>
