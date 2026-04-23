@@ -72,10 +72,7 @@ const services = [
   },
 ];
 
-const areas = [
-  "Downtown Toronto", "Etobicoke", "Richmond Hill",
-  "North York", "Vaughan", "Scarborough", "Markham",
-];
+const areas = [];
 
 const steps = [
   { n: "01", label: "Reach Out", desc: "Contact us via phone, email, or the site." },

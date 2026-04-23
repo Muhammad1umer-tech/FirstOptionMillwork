@@ -1,6 +1,7 @@
 import { Montserrat, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import ConstructionBanner from "@/components/universal/ConstructionBanner";
 
 export const metadata = {
   title: "First Option Millwork",
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
       <body className="bg-[#0f0a08] text-white overflow-x-hidden">
         <Script src="https://cdn.lordicon.com/lordicon.js" strategy="lazyOnload" />
         {children}
+        <ConstructionBanner />
       </body>
     </html>
   );

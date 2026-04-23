@@ -22,11 +22,6 @@ const services = [
   "Home Office & Commercial",
 ];
 
-const areas = [
-  "Toronto","Mississauga","Brampton","Vaughan","Markham","Richmond Hill",
-  "North York","Scarborough","Etobicoke","Oakville","Burlington","Hamilton",
-  "Barrie","Oshawa","Pickering","Ajax","Whitby","Kingston",
-];
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -215,15 +210,8 @@ export default function Navbar() {
 
             <Link href="/about" className="hover:text-black transition">About Us</Link>
 
-            {/* Service Area dropdown */}
-            <div className="relative py-1" onMouseEnter={() => handleOpen("area")} onMouseLeave={handleClose}>
-              <span className="flex items-center gap-1.5 cursor-pointer">
-                Service Area {chevron("area")}
-              </span>
-              {(open === "area" || closing === "area") && (
-                <Dropdown items={areas} closing={closing === "area"} href="/contact" />
-              )}
-            </div>
+            {/* Service Area link */}
+            <Link href="/service-area" className="hover:text-black transition">Service Area</Link>
 
             <Link href="/gallery" className="hover:text-black transition">Gallery</Link>
             <Link href="/our-process" className="hover:text-black transition">Our Process</Link>
@@ -310,8 +298,14 @@ export default function Navbar() {
             {/* Services accordion */}
             <MobileAccordion label="Services" items={services} href="/services" onClose={() => setMobileOpen(false)} />
 
-            {/* Service Area accordion */}
-            <MobileAccordion label="Service Area" items={areas} href="/contact" onClose={() => setMobileOpen(false)} />
+            {/* Service Area link */}
+            <Link
+              href="/service-area"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center py-4 border-b border-white/10 text-white/85 text-[15px] font-medium hover:text-[#e2be96] transition"
+            >
+              Service Area
+            </Link>
           </nav>
 
           {/* Drawer CTA */}

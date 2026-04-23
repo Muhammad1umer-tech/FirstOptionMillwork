@@ -144,16 +144,7 @@ export default function Footer () {
           <h4 className="text-sm font-semibold tracking-wide">Service Areas</h4>
           <div className="w-full h-[1px] bg-white/10"></div>
 
-          <div className="grid grid-cols-2 gap-2 text-[13px]">
-            {["East York","North York","Richmond Hill","Vaughan","King City","Markham"].map((area) => (
-              <div key={area} className="flex items-center gap-2">
-                <span className="text-white/30">›</span>
-                <Link href="/contact" className="text-white/50 hover:text-white transition">
-                  {area}
-                </Link>
-              </div>
-            ))}
-          </div>
+          <div className="text-[13px] text-white/40">Coming soon</div>
         </div>
 
       </div>
